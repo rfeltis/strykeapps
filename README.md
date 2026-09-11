@@ -41,7 +41,8 @@ It:
 4. Set:
    - Organization: `rfeltis`
    - Repository: `strykeapps`
-   - Entity: **Branch** `main` (add another credential for `workflow_dispatch` from other branches if needed, or use Environment)
+   - Entity: **Branch** `main`
+   - If login fails with `AADSTS700213`, set the credential **subject** to the value GitHub presented (this org currently uses `repo:rfeltis@2825162/strykeapps@1366365648:ref:refs/heads/main`). You can keep a second credential with the classic `repo:rfeltis/strykeapps:ref:refs/heads/main` subject.
 5. Copy the app (client) ID, tenant ID, and subscription ID into the GitHub secrets listed above.
 
 The workflow uses `permissions: id-token: write` so GitHub can mint the OIDC token for `azure/login`.
