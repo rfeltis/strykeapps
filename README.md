@@ -1,6 +1,6 @@
 # strykeapps hosting
 
-Azure App Service **infrastructure only**. No application source is deployed from this repo. Apps will be published onto the App Service later.
+Azure App Service **plan only**. No web app or application source is deployed from this repo. Individual apps will be created on this plan later.
 
 ## Resources
 
@@ -9,8 +9,6 @@ Azure App Service **infrastructure only**. No application source is deployed fro
 | Resource group | `strykerg` | Created by the GitHub Actions workflow in West US 3 if missing |
 | Location | West US 3 (`westus3`) | All resources |
 | App Service Plan | `strykeapps-plan` | Linux, SKU **B1** (Basic) |
-| App Service | `strykeapps` | `https://strykeapps.azurewebsites.net` |
-| Runtime | `NODE\|20-lts` | Placeholder Linux stack; not an app in this repo |
 
 Bicep: `infra/main.bicep`  
 Parameters: `infra/main.bicepparam`
