@@ -2,10 +2,7 @@ name: Deploy Azure infrastructure
 
 on:
   push:
-    branches: [main]
-    paths:
-      - 'infra/**'
-      - '.github/workflows/deploy-infra.yml'
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:

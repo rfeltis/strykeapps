@@ -15,7 +15,7 @@ Parameters: `infra/main.bicepparam`
 
 ## GitHub Actions
 
-`.github/workflows/deploy-infra.yml` runs on **push to `main`** (infra/workflow changes) and **workflow_dispatch**.
+`.github/workflows/deploy-infra.yml` runs on **every push to `main` or `master`** and **workflow_dispatch**.
 
 It:
 
@@ -39,8 +39,8 @@ It:
 4. Set:
    - Organization: `rfeltis`
    - Repository: `strykeapps`
-   - Entity: **Branch** `main`
-   - If login fails with `AADSTS700213`, set the credential **subject** to the value GitHub presented (this org currently uses `repo:rfeltis@2825162/strykeapps@1366365648:ref:refs/heads/main`). You can keep a second credential with the classic `repo:rfeltis/strykeapps:ref:refs/heads/main` subject.
+   - Entity: **Branch** `main` (add another credential for **Branch** `master` if that branch is used)
+   - If login fails with `AADSTS700213`, set the credential **subject** to the value GitHub presented (this org currently uses `repo:rfeltis@2825162/strykeapps@1366365648:ref:refs/heads/main`, plus the same form for `master`). You can keep classic `repo:rfeltis/strykeapps:ref:refs/heads/main` (and `master`) subjects as well.
 5. Copy the app (client) ID, tenant ID, and subscription ID into the GitHub secrets listed above.
 
 The workflow uses `permissions: id-token: write` so GitHub can mint the OIDC token for `azure/login`.
